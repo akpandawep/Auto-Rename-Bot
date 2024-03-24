@@ -65,23 +65,18 @@ async def cb_handler(client, query: CallbackQuery):
                 InlineKeyboardButton('💰 Donate', callback_data='donate')
                 ]])
         )
-        elif data == "donate":
-        buttons = [[
-            InlineKeyboardButton('📲 ꜱᴇɴᴅ ᴘᴀʏᴍᴇɴᴛ ꜱᴄʀᴇᴇɴꜱʜᴏᴛ ʜᴇʀᴇ', user_id=int(6606973036))
-        ],[
-            InlineKeyboardButton('⇋ ʙᴀᴄᴋ ⇋', callback_data='purchase')
-        ]]
-        reply_markup = InlineKeyboardMarkup(buttons)
-        await client.edit_message_media(
-            query.message.chat.id, 
-            query.message.id, 
-            InputMediaPhoto("https://telegra.ph/file/52c5a2a731171f4c94667.jpg")
-        )
-        await query.message.edit_text(
-            text=script.Txt.DONATE_TXT(query.from_user.mention),
-            reply_markup=reply_markup,
-            parse_mode=enums.ParseMode.HTML
-        )
+elif data == "donate":
+    Config.START_PIC = "https://graph.org/file/5876f43b347e9fd0125b5.jpg"
+    await query.message.edit_text(
+        text=Txt.DONATE_TXT,
+        disable_web_page_preview=True,
+        reply_markup=InlineKeyboardMarkup([[
+            InlineKeyboardButton("✖️ Close", callback_data="close"),
+            InlineKeyboardButton("🔙 Back", callback_data="help")
+        ]])          
+    )
+
+    
     elif data == "file_names":
         format_template = await madflixbotz.get_format_template(user_id)
         await query.message.edit_text(
@@ -127,7 +122,7 @@ async def cb_handler(client, query: CallbackQuery):
 
 
 
-# PandaWep
+# Jishu Developer 
 # Don't Remove Credit 🥺
-# Telegram Channel @PandaWep
-# Developer https://github.com/PandaWep
+# Telegram Channel @Madflix_Bots
+# Developer @JishuDeveloper
