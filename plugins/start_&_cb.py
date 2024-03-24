@@ -65,6 +65,7 @@ elif data == "help":
             InlineKeyboardButton('💰 Donate', callback_data='donate')
             ]])
     )
+
 elif data == "donate":
     global Config.START_PIC
     Config.START_PIC = "https://graph.org/file/5876f43b347e9fd0125b5.jpg"
