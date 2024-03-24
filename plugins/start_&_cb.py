@@ -66,7 +66,7 @@ async def cb_handler(client, query: CallbackQuery):
                 ]])
         )
 elif data == "donate":
-    global START_PIC
+    global Config.START_PIC
     Config.START_PIC = "https://graph.org/file/5876f43b347e9fd0125b5.jpg"
     await query.message.edit_text(
         text=Txt.DONATE_TXT,
