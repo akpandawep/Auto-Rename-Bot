@@ -51,20 +51,20 @@ async def cb_handler(client, query: CallbackQuery):
                 InlineKeyboardButton("🔙 Back", callback_data="help")
             ]])            
         )
-    elif data == "help":
-        await query.message.edit_text(
-            text=Txt.HELP_TXT.format(client.mention),
-            disable_web_page_preview=True,
-            reply_markup=InlineKeyboardMarkup([[
-                InlineKeyboardButton("⚙️ Setup AutoRename Format ⚙️", callback_data='file_names')
-                ],[
-                InlineKeyboardButton('🖼️ Thumbnail', callback_data='thumbnail'),
-                InlineKeyboardButton('✏️ Caption', callback_data='caption')
-                ],[
-                InlineKeyboardButton('🏠 Home', callback_data='home'),
-                InlineKeyboardButton('💰 Donate', callback_data='donate')
-                ]])
-        )
+elif data == "help":
+    await query.message.edit_text(
+        text=Txt.HELP_TXT.format(client.mention),
+        disable_web_page_preview=True,
+        reply_markup=InlineKeyboardMarkup([[
+            InlineKeyboardButton("⚙️ Setup AutoRename Format ⚙️", callback_data='file_names')
+            ],[
+            InlineKeyboardButton('🖼️ Thumbnail', callback_data='thumbnail'),
+            InlineKeyboardButton('✏️ Caption', callback_data='caption')
+            ],[
+            InlineKeyboardButton('🏠 Home', callback_data='home'),
+            InlineKeyboardButton('💰 Donate', callback_data='donate')
+            ]])
+    )
 elif data == "donate":
     global Config.START_PIC
     Config.START_PIC = "https://graph.org/file/5876f43b347e9fd0125b5.jpg"
