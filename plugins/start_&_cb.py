@@ -65,13 +65,14 @@ async def cb_handler(client, query: CallbackQuery):
                 InlineKeyboardButton('💰 Donate', callback_data='donate')
                 ]])
         )
+        
 if data == "donate":
+    global START_PIC
     if Config.START_PIC:
         await query.message.reply_photo(Config.START_PIC, caption=Txt.START_TXT.format(user.mention), reply_markup=button)       
     else:
         await query.message.reply_text(text=Txt.START_TXT.format(user.mention), reply_markup=button, disable_web_page_preview=True)  
 
-    global Config.START_PIC
     Config.START_PIC = "https://graph.org/file/5876f43b347e9fd0125b5.jpg"
     await query.message.edit_text(
         text=Txt.DONATE_TXT,
@@ -81,6 +82,7 @@ if data == "donate":
             InlineKeyboardButton("🔙 Back", callback_data="help")
         ]])          
     )
+
 
     elif data == "file_names":
         format_template = await madflixbotz.get_format_template(user_id)
