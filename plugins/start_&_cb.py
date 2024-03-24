@@ -65,17 +65,16 @@ async def cb_handler(client, query: CallbackQuery):
                 InlineKeyboardButton('💰 Donate', callback_data='donate')
                 ]])
         )
-elif data == "donate":
-    Config.START_PIC = "https://graph.org/file/5876f43b347e9fd0125b5.jpg"
-    await query.message.edit_text(
-        text=Txt.DONATE_TXT,
-        disable_web_page_preview=True,
-        reply_markup=InlineKeyboardMarkup([[
-            InlineKeyboardButton("✖️ Close", callback_data="close"),
-            InlineKeyboardButton("🔙 Back", callback_data="help")
-        ]])          
-    )
-
+    elif data == "donate":
+        Config.START_PIC = "https://graph.org/file/5876f43b347e9fd0125b5.jpg"
+        await query.message.edit_text(
+            text=Txt.DONATE_TXT,
+            disable_web_page_preview=True,
+            reply_markup=InlineKeyboardMarkup([[
+                InlineKeyboardButton("✖️ Close", callback_data="close"),
+                InlineKeyboardButton("🔙 Back", callback_data="help")
+            ]])          
+        )
     
     elif data == "file_names":
         format_template = await madflixbotz.get_format_template(user_id)
